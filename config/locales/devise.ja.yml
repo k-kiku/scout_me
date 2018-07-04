@@ -54,7 +54,7 @@ ja:
       expired: "有効期限切れです。新規登録してください。"
       not_found: "は見つかりませんでした。"
       not_locked: "ロックされていません。"
-      not_saved:
+      not_saved: "保存できません"
       one: "エラーにより、この %{resource} を保存できません："
       other: "%{count} 個のエラーにより、この %{resource} を保存できません："
       taken: "は既に使用されています。"
@@ -63,3 +63,4 @@ ja:
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
+    
