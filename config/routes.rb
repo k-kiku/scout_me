@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users#,:controllers => {
-    #:registrations => 'users/registrations'
-    #} deviseのコントローラを使わない時にコメントアウトを外す
+  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
     
-  root                                 'static_pages#index'
-  get '/users/sign_up',             to: 'users/registrations#new'
+  root                                    'static_pages#index'
+  get '/users/sign_up',               to: 'users/registrations#new'
+  get 'users/show',                   to: 'users#show'
+  get '/users/auth/twitter/callback', to: 'omniauth_callbacks#twitter'
   
 
 

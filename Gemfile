@@ -12,6 +12,7 @@ gem 'jbuilder',     '2.6.4'
 gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'figaro',       '1.1.1'
 #twitter認証の時に使う

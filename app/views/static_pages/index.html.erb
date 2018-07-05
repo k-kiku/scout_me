@@ -56,7 +56,8 @@
 		</h3>
 		
 		<!-- Nice place to describe your site in a sentence or two -->
-		<p><%= link_to "登録/ログイン", new_user_registration_path, class: "btn btn-default btn-lg" %></p>
+		<p><%= link_to "メールアドレスで登録/ログイン", new_user_registration_path, class: "btn btn-default btn-lg" %></p>
+		<p><%= link_to "Twitterで登録/ログイン", user_twitter_omniauth_authorize_path, class: "btn btn-default btn-lg" %></p>
 		
       </div> <!-- /col -->
 	</div> <!-- /row -->
