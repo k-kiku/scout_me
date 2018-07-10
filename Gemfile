@@ -13,6 +13,12 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'omniauth-twitter'
+gem 'figaro',       '1.1.1'
+#twitter認証の時に使う
+gem 'config'
+#gmaiのアプリパスワード等をgitignoreに入れる為に
+gem 'rails-i18n', '~> 5.1'
+#エラーが起きた時にエラーメッセージが異なることがないように
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
