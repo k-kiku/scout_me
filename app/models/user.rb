@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, 
-         :confirmable, :timeoutable, :omniauthable, omniauth_providers: %i[twitter]
+         :timeoutable, :omniauthable, omniauth_providers: %i[twitter]
   #---------------------------------------------------------------
   #Callback
   #---------------------------------------------------------------
@@ -24,8 +24,8 @@ class User < ApplicationRecord
   #uidとproviderで検索してあったらそれを、無かったらレコードを作ります。
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      #user.email = auth.info.email
-      #user.password = Devise.friendly_token[0,20]
+      user.email = User.dummy_email(auth)
+      user.password = Devise.friendly_token[4, 30]
       user.uid = auth['uid']
       user.provider = auth['provider']
       user.nickname = auth['info']['name']   # assuming the user model has a name
@@ -49,11 +49,18 @@ class User < ApplicationRecord
     false
   end
   
+  #@TODO ダミーのパスワードじゃ都合悪い時に。配置はuser.rbでいい？
+  #def password_required?
+  #   super && provider.blank?  # provider属性に値があればパスワード入力免除
+  #end
+  
   private
   #twitterでサインアップする時に、本来サインアップに必要なメールアドレスカラムをダミーで埋める
-  #def self.dummy_email(auth)
-  #  "#{auth.uid}-#{auth.provider}@example.com"
-  #end
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
+  end
+  
+  
   
   
 end

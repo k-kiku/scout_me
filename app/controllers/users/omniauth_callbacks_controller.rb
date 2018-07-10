@@ -20,7 +20,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def sign_up_params
     params.require(:user).permit(:uid, :provider, :nickname, :image_url)
   end
-
+  
+  
+  
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 
