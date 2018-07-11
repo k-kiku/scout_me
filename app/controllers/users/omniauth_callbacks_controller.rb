@@ -17,6 +17,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
   
+  #
+  # アカウント情報の編集時に許可するパラメータの設定
+  #
   def sign_up_params
     params.require(:user).permit(:uid, :provider, :nickname, :image_url)
   end
