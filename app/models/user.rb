@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :uid, uniqueness: true
   
   #uidとproviderで検索してあったらそれを、無かったらレコードを作ります。
-  def self.from_omniauth(auth)
+  def self.find_for_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = User.dummy_email(auth)
       user.password = Devise.friendly_token[4, 30]
@@ -45,9 +45,6 @@ class User < ApplicationRecord
     end
   end
   
-  def email_changed?
-    false
-  end
   
   #@TODO ダミーのパスワードじゃ都合悪い時に。配置はuser.rbでいい？
   #def password_required?
