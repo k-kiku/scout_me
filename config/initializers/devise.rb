@@ -22,7 +22,7 @@ Devise.setup do |config|
   config.mailer_sender = Settings.gmail[:user_name]
 
   #Twitter連携に必要な値
-  config.omniauth :twitter, ENV['twitter_dev_account_API_KEY'], ENV['twitter_dev_account_API_SECLET']
+  config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET']
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
