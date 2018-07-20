@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get '/users/show',                  to: 'users#show'
   get '/users/auth/twitter/callback', to: 'omniauth_callbacks#twitter'
   get '/users/sign_out',              to: 'devise/sessions#destroy'
-  get '/users/sign_in',               to: 'devise/sessions#new'
+  get '/users/sign_in',               to: 'devise/sessions#new' 
+  post'/users/sign_in',               to: 'devise/sessions#create'
   #@TODO 退会する時
   #get '/users/cancel',                to: 'devise/registrations#cancel'
 
