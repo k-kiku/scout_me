@@ -68,6 +68,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -234,11 +238,13 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   config
   devise
+  dotenv-rails
   figaro (= 1.1.1)
   font-awesome-rails
   jbuilder (= 2.6.4)
   jquery-rails (= 4.3.1)
   listen (= 3.0.8)
+  omniauth
   omniauth-twitter
   pg (= 0.20.0)
   puma (= 3.9.1)

@@ -21,6 +21,9 @@ Devise.setup do |config|
   #gem configを使ったgmailアドレス
   config.mailer_sender = Settings.gmail[:user_name]
 
+  #Twitter連携に必要な値
+  config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET']
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -41,7 +44,9 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  
+  #サインインする時に必要な値をemailからuidに変更する
+  config.authentication_keys = [:uid]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -252,7 +257,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
