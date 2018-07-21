@@ -15,8 +15,6 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'figaro',       '1.1.1'
-#twitter認証の時に使う
 gem 'config'
 #gmaiのアプリパスワード等をgitignoreに入れる為に
 gem 'rails-i18n', '~> 5.1'
