@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, 
+         :recoverable, :rememberable, :trackable,
          :timeoutable, :omniauthable, omniauth_providers: %i[twitter]
   #---------------------------------------------------------------
   #Callback
@@ -16,10 +16,10 @@ class User < ApplicationRecord
   #twitter1認証でサインアップする為に外してみた
   #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: true
-   #                 format: { with: VALID_EMAIL_REGEX },
+  #format: { with: VALID_EMAIL_REGEX }
     #                　length: { maximum: 255 },
   validates :password, length: { minimum: 6 }
-  validates :uid, uniqueness: true
+ #validates :uid, uniqueness: true
   
   #uidとproviderで検索してあったらそれを、無かったらレコードを作ります。
   def self.find_for_oauth(auth)
