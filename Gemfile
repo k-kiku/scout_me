@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails',        '5.0.3'
 gem 'bcrypt',       '3.1.11'
 gem 'puma',         '3.9.1'
@@ -12,9 +13,8 @@ gem 'jbuilder',     '2.6.4'
 gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'figaro',       '1.1.1'
-#twitter認証の時に使う
 gem 'config'
 #gmaiのアプリパスワード等をgitignoreに入れる為に
 gem 'rails-i18n', '~> 5.1'

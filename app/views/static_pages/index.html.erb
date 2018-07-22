@@ -29,8 +29,8 @@
 		  <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 		  <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
 			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			  <li><a href="#head" class="active">Hello</a></li>
-			  <li><a href="#about">About me</a></li>
+			  <li></li>
+			  <li><%= link_to "ログアウト", users_sign_out_path %></a></li>
 			  <li><a href="#themes">Themes</a></li>
 			  <li><a href="#contact">Get in touch</a></li>
 			</ul>
@@ -56,7 +56,10 @@
 		</h3>
 		
 		<!-- Nice place to describe your site in a sentence or two -->
-		<p><%= link_to "登録/ログイン", new_user_registration_path, class: "btn btn-default btn-lg" %></p>
+		
+		<p><%= link_to "新規登録", users_sign_up_path, class: "btn btn-default btn-lg" %></p>
+		<p><%= link_to "Twitterで登録/ログイン", user_twitter_omniauth_authorize_path, class: "btn btn-default btn-lg" %></p>
+		<p><%= link_to "ログアウト", users_sign_out_path, class: "btn btn-default btn-lg" %></p>
 		
       </div> <!-- /col -->
 	</div> <!-- /row -->
