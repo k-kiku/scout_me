@@ -45,8 +45,8 @@ Devise.setup do |config|
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
   
-  #サインインする時に必要な値をemailからuidに変更する
-  config.authentication_keys = [:uid]
+  #サインインする時に必要な値をemailからuidに変更しなくてもtwitter認証できる
+  config.authentication_keys = [:email, :login]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
