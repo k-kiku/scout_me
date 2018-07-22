@@ -61,4 +61,4 @@ class User < ApplicationRecord
   
   
 end
->>>>>>> feature/registration-for-twitterid/#3
+
