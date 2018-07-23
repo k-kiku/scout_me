@@ -2,8 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,
-         :timeoutable, :omniauthable, omniauth_providers: %i[twitter]
+         :recoverable, :rememberable, :trackable, :confirmable,
+         :timeoutable, :omniauthable, omniauth_providers: %i[twitter], :authentication_keys => {email: true, login: false}
   #---------------------------------------------------------------
   #Callback
   #---------------------------------------------------------------
@@ -20,6 +20,12 @@ class User < ApplicationRecord
     #                　length: { maximum: 255 },
   validates :password, length: { minimum: 6 }
  #validates :uid, uniqueness: true
+  
+  attr_writer :login
+
+  def login
+    @login || self.encrypted_password || self.email
+  end
   
   #uidとproviderで検索してあったらそれを、無かったらレコードを作ります。
   def self.find_for_oauth(auth)
