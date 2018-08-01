@@ -19,6 +19,7 @@ gem 'config'
 #gmaiのアプリパスワード等をgitignoreに入れる為に
 gem 'rails-i18n', '~> 5.1'
 #エラーが起きた時にエラーメッセージが異なることがないように
+gem "mini_magick"
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
