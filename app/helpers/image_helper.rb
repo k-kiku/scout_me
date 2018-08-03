@@ -5,7 +5,7 @@ module ImageHelper
   BASE_IMAGE_PATH = './app/assets/images/scout.png'.freeze
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
-  FONT = './app/assets/fonts/higurasi'.freeze
+  FONT = './.fonts/azukiLB.ttf'
   FONT_SIZE = 65
   INDENTION_COUNT = 11
   ROW_LIMIT = 8

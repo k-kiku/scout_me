@@ -20,10 +20,16 @@ gem 'config'
 gem 'rails-i18n', '~> 5.1'
 #エラーが起きた時にエラーメッセージが異なることがないように
 gem "mini_magick"
+gem 'carrierwave'
+gem 'fog',          '1.40.0'
+#画像関連
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'pry-rails'
+  gem 'better_errors'
+  #デバッグ
 end
 
 group :development do

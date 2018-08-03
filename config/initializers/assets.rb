@@ -12,4 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( magister.css )
 
 #fontsディレクトリをプリコンパイルさせる為、そしてアセットに（font-urlと記述して）ダイジェストを付与する為
-Rails.application.config.assets.precompile += %w('app', 'assets', 'fonts')
+Rails.application.config.assets.precompile += %w('.fonts')
