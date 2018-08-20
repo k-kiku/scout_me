@@ -1,0 +1,14 @@
+<h2>生成された画像の確認</h2>
+<siv>
+  <%= image_tag @post.picture, width:'315' %>    
+</siv>
+
+<h2>\シェアしてスカウトされよう/</h2>
+<!-- Twitter投稿へのリンク。「url」以下がTwitter本文に記載されるURL、「hashtags」以下がハッシュタグ -->
+<a href="https://twitter.com/share?url=https://[scoutme].herokuapp.com/posts/<%= @post.id %>&hashtags=[scoutme]" target="_blank" class="square_btn" data-show-count="false">Twitterにシェア</a>
+<div>
+  <%= link_to "画像編集へ戻る", edit_post_path(@post) %>
+</div>
+<div>
+  <%= link_to "トップページへ", root_path %>    
+</div>

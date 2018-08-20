@@ -3,4 +3,6 @@
 <%= ImageHelper.build('何かしらの文字列を合成してみる').tempfile.open.read %>
 
 <!-- 生成した画像の書き出し -->
-<%= ImageHelper.write('何かしらの文字列を合成してみる') %>
+<%= image = ImageHelper.write('何かしらの文字列を合成してみる') %>
+
+<%= p image %>
