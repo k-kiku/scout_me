@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   before_action :new_post, only: [:show, :new]
   # GET /posts
   # GET /posts.json
-
   BASE_IMAGE_PATH = './app/assets/images/scout.png'.freeze
   GRAVITY = 'center'.freeze
   TEXT_POSITION = '0,0'.freeze
@@ -15,7 +14,6 @@ class PostsController < ApplicationController
   FONT_SIZE = 32
   INDENTION_COUNT = 21
   ROW_LIMIT = 8
-  DRAW = "text 0,0"
   
   def index
     @post = Post.all
@@ -100,15 +98,15 @@ class PostsController < ApplicationController
     end
     
   def make_picture
+    content = @post.content
     image = MiniMagick::Image.open(BASE_IMAGE_PATH) 
     # 設定関連の値を代
     image.combine_options do |config|
         config.font FONT
         config.gravity GRAVITY
         config.pointsize FONT_SIZE
-        config.draw DRAW
+        config.draw "text 0,0 '#{content}'"
     end
-    
     # 保存先のストレージの指定。Amazon S3を指定する。
     storage = Fog::Storage.new(
       provider: 'AWS',
@@ -127,11 +125,11 @@ class PostsController < ApplicationController
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/scoutme-production' + "/" + png_path
       when 'development'
-        bucket = storage.directories.get('scoutme-development')
-        png_path = SecureRandom.hex + '.png'
-        image_uri = image.path
-        file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
-        @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/scoutme-development' + "/" + png_path
+       bucket = storage.directories.get('scoutme-development')
+       png_path = SecureRandom.hex + '.png'
+       image_uri = image.path
+       file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
+       @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/scoutme-development' + "/" + png_path
     end
   end
 end
