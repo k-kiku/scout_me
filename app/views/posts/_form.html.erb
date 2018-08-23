@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <p>画像内の文字入力</p>
-    <%= f.text_area :content, class:'form-control', rows:"3" %>
+    <%= f.text_area :content, class:'form-control', rows:"3", authenticity_token: true %>
   </div>
 
   <div class="actions">
