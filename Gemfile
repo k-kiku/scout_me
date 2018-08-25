@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails',        '5.0.3'
 gem 'bcrypt',       '3.1.11'
 gem 'puma',         '3.9.1'
@@ -21,6 +20,7 @@ gem 'rails-i18n', '~> 5.1'
 #エラーが起きた時にエラーメッセージが異なることがないように
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
 end
