@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', '2.2.1', groups: [:development, :test]
+gem 'dotenv-rails', '2.2.0', groups: [:development, :test]
 gem 'rails',        '5.0.3'
 gem 'bcrypt',       '3.1.11'
 gem 'puma',         '3.9.1'
