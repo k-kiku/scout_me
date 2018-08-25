@@ -20,7 +20,7 @@ gem 'rails-i18n', '~> 5.1'
 #エラーが起きた時にエラーメッセージが異なることがないように
 
 group :development, :test do
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
 end
