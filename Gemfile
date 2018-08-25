@@ -34,6 +34,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'dotenv-rails'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
