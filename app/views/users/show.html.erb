@@ -1,1 +1,8 @@
-<h1>こんにちは</h1>
+<!DOCTYPE html>
+<!-- 生成した画像のFileClassを取得-->
+<%= ImageHelper.build('何かしらの文字列を合成してみる').tempfile.open.read %>
+
+<!-- 生成した画像の書き出し -->
+<%= image = ImageHelper.write('何かしらの文字列を合成してみる') %>
+
+<%= p image %>
