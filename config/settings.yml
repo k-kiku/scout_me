@@ -1,0 +1,4 @@
+#gem configによるgmaiのアドレス、アプリパスワード管理
+gmail:
+     user_name: 'scout.me0415@gmail.com'
+     password: 'txlllfdyixotmiwr'
