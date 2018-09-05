@@ -19,10 +19,7 @@ class PostsController < ApplicationController
     @post = Post.all
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
-   @post.id = params[:id]
     render :new
   end
 
@@ -43,20 +40,10 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to confirm_path(@post)
     else
-      render:new
+      render :new
     end
   end
   
-    
-  respond_to do |format|
-    if @post.save
-      format.html { redirect_to @post, notice: 'Post was successfully created.' }
-      format.json { render :show, status: :created, location: @post }
-    else
-      format.html { render :new }
-      format.json { render json: @post.errors, status: :unprocessable_entity }
-    end
-  end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -93,7 +80,7 @@ class PostsController < ApplicationController
     end
     
     # 背景にいい感じに収まるように文字を調整して返却
-    def prepare_text(text)
+    def format_text(text)
       text.scan(/.{1,#{INDENTION_COUNT}}/)[0...ROW_LIMIT].join("\n")
     end
     
