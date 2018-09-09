@@ -1,5 +1,12 @@
+
+  <%= stylesheet_link_tag    'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<!-- Custom styles 
+	<link rel="stylesheet" href="assets/stylesheets/devise.css">-->
+
 <p><%= @email %>　ScoutMeへようこそ!</p>
 
 <p>メールアドレスの確認をした後にご利用頂けます。</p>
 
-<p><%= link_to 'メールアドレスの確認', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to '確認する', confirmation_url(@resource, confirmation_token: @token), class: "square2_btn" %></p>

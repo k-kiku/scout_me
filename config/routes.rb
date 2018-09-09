@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   #@TODO 退会する時
   #get '/users/cancel',                to: 'devise/registrations#cancel' 
   
+  
  
   
   # For details on the DSL available within this file, see 

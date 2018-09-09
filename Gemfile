@@ -23,6 +23,8 @@ gem "mini_magick"
 gem 'carrierwave'
 gem 'fog',          '1.40.0'
 #画像関連
+gem 'premailer-rails'
+#mail文にcssを適用する為に
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
