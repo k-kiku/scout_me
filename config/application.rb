@@ -21,6 +21,8 @@ module ScoutMe
     #タイムゾーンの設定
       config.time_zone = 'Tokyo'
       config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    #ActionMailerのviewに画像を追加する為に
+      config.action_mailer.asset_host = 'https://scout2-korosuke.c9users.io'
   end
 end
 

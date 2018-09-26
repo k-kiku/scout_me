@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
   #before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  
+  def email_image_tag(image)
+    image_tag email_image_url(image), options
+  end
+
+  def email_image_url(image)
+    attachments[image] = File.read(Rails.root.join("app/assets/images/#{image}"))
+    attachments[image].url
+  end
 
 
   #GET /resource/sign_up
@@ -15,6 +23,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
+
+
 
   # GET /resource/edit
   # def edit
