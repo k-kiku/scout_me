@@ -3,7 +3,7 @@
   <%= stylesheet_link_tag    'mailer', media: 'all', 'data-turbolinks-track': 'reload' %>
     <p><%= @email %>　ScoutMeへようこそ!</p>
       <p>メールアドレスの確認をした後にご利用頂けます。</p>
-        <%= image_tag 'mail_image.jpg' %>
+        <%= image_tag attachments['mail.png'].url %>
           <p><%= link_to '確認する', confirmation_url(@resource, confirmation_token: @token), class: "square2_btn" %></p>
    <body>
      <ul>

@@ -25,7 +25,7 @@ Devise.setup do |config|
   config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET']
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'DeviseCustomMailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -226,7 +226,7 @@ Devise.setup do |config|
   # You can use :sha1, :sha512 or algorithms from others authentication tools as
   # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
   # for default behavior) and :restful_authentication_sha1 (then you should set
-  # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper).
+  # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
