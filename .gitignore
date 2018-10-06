@@ -32,4 +32,6 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 
 # Ignore other unneeded files.
-/.env
+# dotenv
+# TODO Comment out this rule if environment variables can be committed
+.env
