@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails',        '5.0.3'
 gem 'bcrypt',       '3.1.11'
 gem 'puma',         '3.9.1'
@@ -32,6 +31,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   #デバッグ
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
@@ -42,7 +42,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg', '0.21.0'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
