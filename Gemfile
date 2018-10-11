@@ -43,7 +43,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
