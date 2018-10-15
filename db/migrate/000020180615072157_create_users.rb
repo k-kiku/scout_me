@@ -3,6 +3,7 @@
 class CreateUsers < ActiveRecord::Migration[5.0]
   def self.up
     change_table :users do |t|
+      
       t.string :name
       t.string :provider
       t.string :uid
@@ -11,7 +12,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.timestamps
       
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
