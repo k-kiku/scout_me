@@ -1,15 +1,8 @@
 # frozen_string_literal: true
 
-class CreateUsers < ActiveRecord::Migration[5.0]
+class AddDeviseToUsers < ActiveRecord::Migration[5.0]
   def self.up
     change_table :users do |t|
-      
-      t.string :name
-      t.string :provider
-      t.string :uid
-      t.string :nickname
-      t.string :image_url
-      t.timestamps
       
       ## Database authenticatable
       t.string :email

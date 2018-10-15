@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20180806075307) do
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.string   "picture"
-    t.string   "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180806075307) do
     t.string   "image_url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
+    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
