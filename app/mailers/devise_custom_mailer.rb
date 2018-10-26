@@ -10,4 +10,6 @@ class DeviseCustomMailer < Devise::Mailer
       attachments.inline[png] = File.read("#{Rails.root}/app/assets/images/mailer/" + png)
     end
   end
+  default from: 'ENV["GMAIL_USER_NAME"]'
+  layout 'mailer'
 end

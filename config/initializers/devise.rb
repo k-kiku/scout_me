@@ -14,15 +14,15 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
-  # ==> Mailer Configuration
+  #  ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  #gem configを使ったgmailアドレス
-  config.mailer_sender = Settings.gmail[:user_name]
+  #gmailアドレス
+  config.mailer_sender = ENV["GMAIL_USER_NAME"]
 
   #Twitter連携に必要な値
-  config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET']
+  config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET'], callback_url: "https://scout2-korosuke.c9users.io/users/auth/twitter/callback"
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'DeviseCustomMailer'
