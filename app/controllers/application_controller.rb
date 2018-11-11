@@ -10,10 +10,9 @@ class ApplicationController < ActionController::Base
     #パラメーターnameを渡せるようにする
     #
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-      #TwitterからAPI使用の承認を受けた後に試す
-      devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email])
+      devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :email])
     end 
 
 end
