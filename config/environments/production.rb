@@ -85,15 +85,25 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #remember to change localhost to actual host
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'polar-badlands-73418.herokuapp.com'}
+  #メール送信に関するエラーをログに出力する
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :user_name => Settings.gmail[:user_name],   #gem configを使ったgmailアドレス
-    :password => Settings.gmail[:password],  # Googleが発行する、アプリケーションパスワード
+    :user_name => ENV["GMAIL_USER_NAME"],   #gem configを使ったgmailアドレス
+    :password =>  ENV["GMAIL_PASSWORD"],  # Googleが発行する、アプリケーションパスワード
     :authentication => :plain,
     :enable_starttls_auto => true
   }
   
+end
+
+#
+#開発環境、本番環境どちらでもTwitter連携させる為に
+#
+Devise.setup do |config|
+  #Twitter連携に必要な値
+  config.omniauth :twitter, ENV['TWITTER_PRO_ACCOUNT_API_KEY'], ENV['TWITTER_PRO_ACCOUNT_API_SECLET']
 end

@@ -61,12 +61,18 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => 'smtp.gmail.com',
     :port => 587,
-    :user_name => Settings.gmail[:user_name],   #gem configを使ったgmailアドレス
-    :password => Settings.gmail[:password],  # Googleが発行する、アプリケーションパスワード
+    :user_name => ENV["GMAIL_USER_NAME"],   #gem configを使ったgmailアドレス
+    :password =>  ENV["GMAIL_PASSWORD"],  # Googleが発行する、アプリケーションパスワード
     :authentication => :plain,
     :enable_starttls_auto => true
   }
   
-  
-  
+end
+
+#
+#開発環境、本番環境どちらでもTwitter連携させる為に
+#
+Devise.setup do |config|
+  #Twitter連携に必要な値
+  config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET']
 end

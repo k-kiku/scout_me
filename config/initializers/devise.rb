@@ -14,15 +14,12 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
-  # ==> Mailer Configuration
+  #  ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  #gem configを使ったgmailアドレス
-  config.mailer_sender = Settings.gmail[:user_name]
-
-  #Twitter連携に必要な値
-  config.omniauth :twitter, ENV['TWITTER_DEV_ACCOUNT_API_KEY'], ENV['TWITTER_DEV_ACCOUNT_API_SECLET']
+  #gmailアドレス
+  config.mailer_sender = ENV["GMAIL_USER_NAME"]
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'DeviseCustomMailer'
@@ -46,7 +43,7 @@ Devise.setup do |config|
   # or not authentication should be aborted when the value is not present.
   
   #サインインする時に必要な値をemailからuidに変更しなくてもtwitter認証できる
-  config.authentication_keys = [:email]
+  config.authentication_keys = [:uid]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the

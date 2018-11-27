@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable,
          :timeoutable, :omniauthable, omniauth_providers: %i[twitter]
+       
   #---------------------------------------------------------------
   #Callback
   #---------------------------------------------------------------
@@ -19,10 +20,10 @@ class User < ApplicationRecord
    #                 format: { with: VALID_EMAIL_REGEX },
     #                　length: { maximum: 255 },
   validates :password, length: { minimum: 6 }
-  #validates :uid, uniqueness: true
+  #Svalidates :uid, uniqueness: true
   
   #uidとproviderで検索してあったらそれを、無かったらレコードを作ります。
-  def self.find_for_oauth(auth)
+  def self.find_for_auth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = User.dummy_email(auth)
       user.password = Devise.friendly_token[4, 30]
@@ -32,7 +33,7 @@ class User < ApplicationRecord
       user.image_url = auth['info']['image'] # assuming the user model has an image
       # If you are using confirmable and the provider(s) you use validate emails, 
       # uncomment the line below to skip the confirmation emails.
-      # user.skip_confirmation!
+      user.skip_confirmation!
     end
   end
   
